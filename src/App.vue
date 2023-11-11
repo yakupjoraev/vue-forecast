@@ -36,6 +36,10 @@ onMounted(getWeather);
                     class="search"
                     @keyup.enter="getWeather"
                   />
+
+                  <button class="city-btn" type="button" @click="getWeather">
+                    <img src="/src/assets/img/search.svg" alt="" />
+                  </button>
                 </div>
 
                 <WeatherSummary v-if="!isError" :weatherInfo="weatherInfo" />
@@ -148,17 +152,25 @@ onMounted(getWeather);
   width: 100%;
 }
 
-.city-inner::after {
-  content: "";
+.city-btn {
   position: absolute;
-  top: 0;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
   width: 25px;
   height: 25px;
-  background: url("/src/assets/img/search.svg") no-repeat 50% 50%;
-  background-size: contain;
-  transform: translateY(50%);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .info {
